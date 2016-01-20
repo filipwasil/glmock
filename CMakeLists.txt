@@ -1,20 +1,4 @@
 project(glmock)
-
-cmake_minimum_required(VERSION 2.8)
-set(CMAKE_CXX_COMPILER "clang++")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --std=c++11")
-
-if (NOT GTEST_FOUND)
-    find_package(GTEST REQUIRED)
-endif()
-if (NOT GMOCK_FOUND)
-    find_package(GMOCK REQUIRED)
-endif()
-if (NOT GLEW_FOUND)
-    find_package(GLEW REQUIRED)
-endif()
-
-include_directories(SYSTEM ${GTEST_INCLUDE_DIRS})
-include_directories(SYSTEM ${GMOCK_INCLUDE_DIRS})
-include_directories(SYSTEM ${GLEW_INCLUDE_DIRS})
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../gtest/googletest/include)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../gtest/googlemock/include)
 add_library(glmock SHARED glmock.cpp)
